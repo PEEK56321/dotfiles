@@ -78,6 +78,11 @@ if [ -x ~/.config/bash/aliases.sh ]; then
     . ~/.config/bash/aliases.sh
 fi
 
+# Start ssh-agent, but only once.
+if [ -x ~/.config/bash/ssh-agent.sh ]; then
+    . ~/.config/bash/ssh-agent.sh
+fi
+
 # Set up an auto-reconnecting tmux session based on username.
 if [ -x ~/.config/tmux/autoconnect.sh ]; then
     . ~/.config/tmux/autoconnect.sh
