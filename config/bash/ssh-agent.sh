@@ -2,7 +2,7 @@
 SSH_ENV_FILE="$HOME/.ssh/agent-environment"
 
 function start_agent {
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV_FILE}"
     chmod 600 "${SSH_ENV_FILE}"
     . "${SSH_ENV_FILE}" > /dev/null
 }
