@@ -51,7 +51,6 @@ if terminal == 'linux'
     let g:airline_powerline_fonts = 0
     let g:tmuxline_powerline_separators = 0
 
-
     " Set Airline theme
     let g:airline_theme = 'base16_codeschool'
 else
@@ -61,7 +60,6 @@ else
     " Enable powerline fonts
     let g:airline_powerline_fonts = 1
     let g:tmuxline_powerline_separators = 1
-
 
     " Set the Airline theme
     let g:airline_theme = 'cool'
