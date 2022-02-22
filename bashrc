@@ -16,7 +16,7 @@ fi
 [[ $- != *i* ]] && return
 
 # Set umask under WSL2 since it seems to ignore libpam_umask.
-if [[ "$(< /proc/version)" == *@(WSL2)* ]]; then
+if [[ -f "/proc/version" ]] && [[ "$(< /proc/version)" == *"WSL2"* ]]; then
     umask 0002
 fi
 

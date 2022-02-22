@@ -8,13 +8,15 @@ function start_agent {
 }
 
 # Source SSH settings, if applicable
-if [ -f "${SSH_ENV_FILE}" ]; then
-    . "${SSH_ENV_FILE}" > /dev/null
+if [ -d "$HOME/.ssh" ]; then
+    if [ -f "${SSH_ENV_FILE}" ]; then
+        . "${SSH_ENV_FILE}" > /dev/null
 
-    #ps ${SSH_AGENT_PID} doesn't work under cywgin
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        #ps ${SSH_AGENT_PID} doesn't work under cywgin
+        ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+            start_agent;
+        }
+    else
         start_agent;
-    }
-else
-    start_agent;
+    fi
 fi
