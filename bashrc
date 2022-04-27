@@ -73,6 +73,11 @@ esac
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# Add Go to path if it exists.
+if [ -x ~/.config/bash/golang.sh ]; then
+    . ~/.config/bash/golang.sh
+fi
+
 # Enable common aliases from external file.
 if [ -x ~/.config/bash/aliases.sh ]; then
     . ~/.config/bash/aliases.sh
