@@ -1,6 +1,7 @@
 # Set up an auto-reconnecting tmux session based on username.
-# It should only apply to interactive SSH sessions.
-if [[ $TERM == "xterm-256color" && $SSH_TTY && -z $TMUX ]]; then
+# It only applies to xterm-256 color so can be bypassed by using
+# another terminal type (such as xterm).
+if [[ $TERM == "xterm-256color" && -z $TMUX ]]; then
     WHOAMI=`whoami`
 
     if tmux has-session -t $WHOAMI 2>/dev/null; then
